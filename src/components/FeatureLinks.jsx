@@ -97,22 +97,31 @@ const FeatureLinks = ({ mode = 'all' }) => {
                 </div>
 
                 {/* Text Content Section */}
-                <div className={`flex flex-col ${
-                  (originalIndex === 3) ? 'md:order-2 items-end text-right' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
+                <div className={`flex flex-col h-full justify-center ${
+                  (originalIndex === 3) ? 'md:order-2 items-end text-right md:pl-8 lg:pl-12' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
                 }`}>
                   {originalIndex === 3 ? (
-                    <>
-                      <span className="text-purple-400/80 text-[10px] uppercase tracking-[0.4em] font-black mb-6">
+                    <div className="flex flex-col items-end w-full max-w-xl">
+                      <span className="text-purple-400 text-[10px] uppercase tracking-[0.5em] font-black mb-2 opacity-60">
                         {card.category}
                       </span>
-                      <h2 className="text-white text-3xl md:text-4xl lg:text-[44px] font-bold mb-6 tracking-tighter leading-[1.1]">
-                        {card.title.split(' ').slice(0, -1).join(' ')}<br />
-                        <span className="text-white">{card.title.split(' ').pop()}</span>
+                      <h2 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold mb-5 tracking-tighter leading-[1.05]">
+                        The Architecture <br /> Behind <span className="text-white">LUCA</span>
                       </h2>
-                      <p className="text-[#A0A0A0] text-base lg:text-lg leading-relaxed mb-8 max-w-md font-light">
+                      <p className="text-[#999] text-[15px] lg:text-[16px] leading-relaxed mb-8 max-w-[340px] font-medium opacity-90">
                         {card.description}
                       </p>
-                    </>
+                      
+                      <a 
+                        href={card.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-white/10 bg-white/5 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 group/btn"
+                      >
+                        <span>{card.buttonText}</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                      </a>
+                    </div>
                   ) : (
                     <>
                       <span className="text-[#888] text-[12px] uppercase tracking-[0.2em] font-bold mb-4">{card.category}</span>
@@ -122,18 +131,18 @@ const FeatureLinks = ({ mode = 'all' }) => {
                       <p className="text-[#999] text-base lg:text-[17px] leading-relaxed mb-6 max-w-lg">
                         {card.description}
                       </p>
+
+                      <a 
+                        href={card.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 bg-white/5 text-white text-[12px] font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-500 group/btn"
+                      >
+                        <span>{card.buttonText}</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
+                      </a>
                     </>
                   )}
-
-                  <a 
-                    href={card.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-white/10 bg-white/5 text-white text-[12px] font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-500 group/btn"
-                  >
-                    <span>{card.buttonText}</span>
-                    <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                  </a>
                 </div>
               </div>
             </div>
