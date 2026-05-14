@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 const Navbar = ({ openContactModal }) => {
   return (
     <div className="fixed top-6 w-full z-50 flex justify-center px-4 md:px-6 pointer-events-none">
-      <nav className="w-full max-w-[1000px] bg-white/[0.03] backdrop-blur-lg border border-white/[0.05] px-5 py-1.5 rounded-full flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)] pointer-events-auto transition-all">
+      <nav className="w-full max-w-[1000px] bg-white/[0.02] backdrop-blur-md border border-white/[0.05] px-8 py-2.5 rounded-full flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)] pointer-events-auto transition-all">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center cursor-pointer group">
             <img 
               src="https://i.ibb.co/LhBhDPhX/Screenshot-2026-05-11-153816-removebg-preview.png"
               alt="10xTechnologies Logo"
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-12 md:h-14 w-auto object-contain"
             />
           </Link>
           
-          <div className="hidden md:flex items-center gap-5 text-sm text-[#A0A0A0]">
+          <div className="hidden md:flex items-center gap-8 text-sm text-[#A0A0A0]">
             <Link to="/product" className="hover:text-white transition-colors">Product</Link>
             <Link to="/ai" className="hover:text-white transition-colors">AI</Link>
           </div>
@@ -24,7 +24,7 @@ const Navbar = ({ openContactModal }) => {
         <div className="hidden md:block">
           <button 
             onClick={openContactModal}
-            className="bg-[#512da8] text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-[0_0_20px_rgba(81,45,168,0.4)] hover:shadow-[0_0_30px_rgba(81,45,168,0.6)] hover:scale-105 active:scale-95 transition-all"
+            className="bg-[#512da8] text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-[0_0_20px_rgba(81,45,168,0.4)] hover:shadow-[0_0_30px_rgba(81,45,168,0.6)] hover:scale-105 active:scale-95 transition-all"
           >
             <span className="relative z-10 tracking-wide">Contact Us</span>
           </button>
