@@ -24,7 +24,7 @@ const LogoGroup = () => (
 
 const Logos = () => {
   return (
-    <section className="mt-10 pt-4 pb-4 border-y border-white/10 overflow-hidden">
+    <section className="mt-10 pt-4 pb-2 border-y border-white/10 overflow-hidden">
       <p className="text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.3em] mb-4 text-center">Officially Collaborated & Backed By</p>
 
       <div className="relative w-full overflow-hidden">
