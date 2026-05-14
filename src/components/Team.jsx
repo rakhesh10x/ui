@@ -81,36 +81,36 @@ const Team = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Column 1: member list */}
-        <div className="flex flex-col">
+        <div className="flex flex-col border-t border-white/[0.06]">
           {team.map((member) => {
             const isSelected = selected?.name === member.name;
             return (
               <button
                 key={member.name}
                 onClick={() => setSelected(isSelected ? null : member)}
-                className={`flex items-center gap-4 py-3.5 px-2 border-b border-white/[0.06] text-left transition-all duration-200
+                className={`flex items-center gap-4 py-[1.15rem] px-2 border-b border-white/[0.06] text-left transition-all duration-300
                   ${isSelected ? 'bg-white/[0.04]' : 'hover:bg-white/[0.03]'}`}
               >
-                <span className="text-[#666] text-sm w-28 flex-shrink-0">{member.role}</span>
-                <span className="text-white text-sm flex-1">{member.name}</span>
+                <span className="text-[#666] text-xs w-28 flex-shrink-0 font-medium uppercase tracking-wider">{member.role}</span>
+                <span className="text-white text-sm font-semibold flex-1">{member.name}</span>
               </button>
             );
           })}
         </div>
 
         {/* Column 2: detail card */}
-        <div className="flex items-stretch">
+        <div className="flex h-full">
           {selected ? (
             <div
               key={selected.name}
-              className="w-full glass-card rounded-2xl overflow-hidden flex transition-all duration-300 h-[265px]"
+              className="w-full glass-card rounded-2xl overflow-hidden flex transition-all duration-500 h-full"
               style={{
                 border: `1px solid rgba(${selected.gradientRgba},0.25)`,
-                boxShadow: `0 0 40px rgba(${selected.gradientRgba},0.08)`,
+                boxShadow: `0 0 50px rgba(${selected.gradientRgba},0.08)`,
               }}
             >
               {/* Left: image with right-side fade */}
-              <div className="relative w-1/2 flex-shrink-0">
+              <div className="relative w-2/5 flex-shrink-0 h-full">
                 {selected.photo ? (
                   <img
                     src={selected.photo}
@@ -121,7 +121,7 @@ const Team = () => {
                   <div
                     className="w-full h-full flex items-center justify-center"
                     style={{
-                      background: `linear-gradient(135deg, rgba(${selected.gradientRgba},0.18) 0%, rgba(${selected.gradientRgba},0.05) 100%)`,
+                      background: `linear-gradient(135deg, rgba(${selected.gradientRgba},0.15) 0%, rgba(${selected.gradientRgba},0.05) 100%)`,
                     }}
                   >
                     <svg className="w-14 h-14 opacity-20" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24" style={{ color: selected.accentColor }}>
@@ -129,65 +129,49 @@ const Team = () => {
                     </svg>
                   </div>
                 )}
-                {/* Fade to right */}
                 <div
                   className="absolute inset-0 pointer-events-none"
-                  style={{ background: 'linear-gradient(to right, transparent 40%, #08080f 100%)' }}
+                  style={{ background: 'linear-gradient(to right, transparent 30%, #08080f 100%)' }}
                 />
               </div>
 
-              {/* Right: 3 rows */}
-              <div className="flex-1 flex flex-col justify-between py-5 px-5">
-
-                {/* Row 1: name + edu + role */}
+              {/* Right: details */}
+              <div className="flex-1 flex flex-col justify-between py-6 px-6 bg-[#08080f]/50">
                 <div>
-                  <h3 className="text-white text-base font-semibold leading-tight">{selected.name}</h3>
-                  <p className="text-[#666] text-[11px] mt-0.5">{selected.education}</p>
-                  <span
-                    className="text-[10px] uppercase tracking-[0.18em] font-bold mt-1 block"
-                    style={{ color: selected.accentColor }}
-                  >
-                    {selected.role}
-                  </span>
+                  <h3 className="text-white text-lg font-bold leading-tight">{selected.name}</h3>
+                  <p className="text-purple-400/80 text-[10px] uppercase tracking-[0.2em] font-black mt-1.5">{selected.role}</p>
+                  <p className="text-[#666] text-[11px] mt-2 font-medium">{selected.education}</p>
                 </div>
 
-                {/* Row 2: description */}
-                <p className="text-[#888] text-xs leading-relaxed">
+                <p className="text-[#999] text-[13px] leading-relaxed font-light line-clamp-3">
                   {selected.description}
                 </p>
 
-                {/* Row 3: contact icons */}
                 <div className="flex items-center gap-3">
                   <a
                     href={`mailto:${selected.email}`}
-                    title={selected.email}
-                    className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-[#666] hover:text-white hover:bg-white/10 transition-all"
+                    className="w-9 h-9 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-[#666] hover:text-white hover:bg-purple-500/20 hover:border-purple-500/30 transition-all duration-300"
                   >
-                    <Mail className="w-3.5 h-3.5" />
-                  </a>
-                  <a
-                    href={`tel:${selected.mobile}`}
-                    title={selected.mobile}
-                    className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-[#666] hover:text-white hover:bg-white/10 transition-all"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
+                    <Mail className="w-4 h-4" />
                   </a>
                   <a
                     href={selected.linkedin}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    title="LinkedIn"
-                    className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 flex items-center justify-center text-[#666] hover:text-white hover:bg-white/10 transition-all"
+                    className="w-9 h-9 rounded-xl bg-white/5 border border-white/8 flex items-center justify-center text-[#666] hover:text-white hover:bg-purple-500/20 hover:border-purple-500/30 transition-all duration-300"
                   >
-                    <LinkedinIcon className="w-3.5 h-3.5" />
+                    <LinkedinIcon className="w-4 h-4" />
                   </a>
                 </div>
-
               </div>
             </div>
           ) : (
-            <div className="w-full h-[265px] rounded-2xl border border-dashed border-white/10 flex items-center justify-center">
-              <p className="text-[#555] text-sm">Select a team member</p>
+            <div className="w-full h-full rounded-2xl border border-dashed border-white/10 flex flex-col items-center justify-center group hover:border-purple-500/20 transition-all duration-500 bg-white/[0.01]">
+              <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+                <svg className="w-6 h-6 text-[#444]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
+              <p className="text-[#666] text-[13px] font-medium tracking-wide">Select a team member to view details</p>
             </div>
           )}
         </div>
