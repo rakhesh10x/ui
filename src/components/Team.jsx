@@ -36,7 +36,7 @@ const team = [
     role: 'OS VP',
     name: 'Dhina',
     initials: 'DH',
-    photo: '/manibhavan.jpg',
+    photo: '/rakhesh.jpg',
     description: 'Leads the development of our custom embedded OS from the ground up. Optimises low-level hardware integration for real-time on-device AI inference.',
     email: 'dhina@10xtechnologies.tech',
     mobile: '+91 00000 00000',
