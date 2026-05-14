@@ -68,7 +68,7 @@ const FeatureLinks = ({ mode = 'all' }) => {
                 </>
               )}
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+              <div className={`grid grid-cols-1 md:grid-cols-2 ${originalIndex === 3 ? 'gap-6 lg:gap-8' : 'gap-12 lg:gap-16'} items-center relative z-10`}>
                 {/* Image Section */}
                 <div className={`relative aspect-[16/10] rounded-[24px] overflow-hidden group w-full ${
                   (originalIndex === 3) ? 'md:order-1' : (originalIndex === 1) ? 'md:order-1 md:mr-auto' : 'md:order-2 md:ml-auto'
@@ -84,7 +84,7 @@ const FeatureLinks = ({ mode = 'all' }) => {
                   
                   {/* Internal Fade for Syncing with Text Area */}
                   {originalIndex === 3 && (
-                    <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-[#08080f]/80 to-transparent z-20 pointer-events-none"></div>
+                    <div className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#08080f]/90 to-transparent z-20 pointer-events-none"></div>
                   )}
 
                   {/* Gloss reflection */}
@@ -98,17 +98,17 @@ const FeatureLinks = ({ mode = 'all' }) => {
 
                 {/* Text Content Section */}
                 <div className={`flex flex-col h-full justify-center ${
-                  (originalIndex === 3) ? 'md:order-2 items-end text-right md:pl-8 lg:pl-12' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
+                  (originalIndex === 3) ? 'md:order-2 items-end text-right' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
                 }`}>
                   {originalIndex === 3 ? (
-                    <div className="flex flex-col items-end w-full max-w-xl">
-                      <span className="text-purple-400 text-[10px] uppercase tracking-[0.5em] font-black mb-2 opacity-60">
+                    <div className="flex flex-col items-end w-full max-w-sm ml-0">
+                      <span className="text-purple-400 text-[10px] uppercase tracking-[0.5em] font-black mb-1 opacity-60">
                         {card.category}
                       </span>
-                      <h2 className="text-white text-3xl md:text-4xl lg:text-[42px] font-bold mb-5 tracking-tighter leading-[1.05]">
+                      <h2 className="text-white text-3xl md:text-4xl lg:text-[40px] font-bold mb-4 tracking-tighter leading-[1.05]">
                         The Architecture <br /> Behind <span className="text-white">LUCA</span>
                       </h2>
-                      <p className="text-[#999] text-[15px] lg:text-[16px] leading-relaxed mb-8 max-w-[340px] font-medium opacity-90">
+                      <p className="text-[#999] text-[15px] lg:text-[15px] leading-relaxed mb-6 max-w-[310px] font-medium opacity-90">
                         {card.description}
                       </p>
                       
@@ -116,7 +116,7 @@ const FeatureLinks = ({ mode = 'all' }) => {
                         href={card.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-7 py-2.5 rounded-full border border-white/10 bg-white/5 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 group/btn"
+                        className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-white/10 bg-white/5 text-white text-[11px] font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-500 group/btn"
                       >
                         <span>{card.buttonText}</span>
                         <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
