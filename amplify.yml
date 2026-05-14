@@ -8,9 +8,10 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist
+    baseDirectory: ./dist # Force explicit path
     files:
       - '**/*'
+# Triggering fresh build - Force sync
   cache:
     paths:
       - node_modules/**/*
