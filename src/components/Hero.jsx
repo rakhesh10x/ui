@@ -11,15 +11,34 @@ const Hero = () => {
         {/* Centered Column: Text & CTA */}
         <div className="w-full flex flex-col items-center text-center z-20">
           
-<motion.div 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-4 w-full max-w-6xl mx-auto"
+            className="mb-8 w-full max-w-6xl mx-auto"
           >
             <div className="flex justify-center items-center w-full">
               <Logo10X className="h-14 md:h-20 lg:h-28 w-auto" />
             </div>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-white text-lg md:text-xl font-medium tracking-wide mb-10 max-w-2xl mx-auto opacity-90"
+          >
+            Building AI that feels less artificial and more human.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <button className="px-10 py-3.5 rounded-full bg-white/5 border border-[#512DA8]/30 text-white font-bold tracking-widest text-xs hover:bg-[#512DA8] hover:border-[#512DA8] hover:shadow-[0_0_40px_rgba(81,45,168,0.4)] active:scale-95 transition-all duration-500">
+              TRY LUCA
+            </button>
           </motion.div>
         </div>
 
