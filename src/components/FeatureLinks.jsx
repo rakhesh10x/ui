@@ -98,10 +98,10 @@ const FeatureLinks = ({ mode = 'all' }) => {
 
                 {/* Text Content Section */}
                 <div className={`flex flex-col h-full justify-center ${
-                  (originalIndex === 3) ? 'md:order-2 items-end text-right' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
+                  (originalIndex === 3) ? 'md:order-2 items-start text-left' : (originalIndex === 1) ? 'md:order-2 items-start text-left md:pl-12 lg:pl-16' : 'md:order-1 items-start text-left md:pr-12 lg:pr-16'
                 }`}>
                   {originalIndex === 3 ? (
-                    <div className="flex flex-col items-end w-full max-w-sm ml-0">
+                    <div className="flex flex-col items-start w-full max-w-sm ml-0">
                       <span className="text-purple-400 text-[10px] uppercase tracking-[0.5em] font-black mb-1 opacity-60">
                         {card.category}
                       </span>
