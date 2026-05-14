@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import Logo10X from './Logo10X';
 const Hero = () => {
   return (
-    <section className="relative px-6 pt-40 pb-8 max-w-[1200px] mx-auto overflow-visible z-10 min-h-[40vh] flex items-center">
+    <section className="relative px-6 pt-40 pb-24 max-w-[1200px] mx-auto overflow-visible z-10 min-h-[70vh] flex items-center">
       
       {/* Background is purely black */}
 
