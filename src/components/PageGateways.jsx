@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const PageGateways = () => {
+  const [isAIHovered, setIsAIHovered] = useState(false);
+  const videoRef = useRef(null);
+
   const gateways = [
     {
       title: 'Hardware',
@@ -20,22 +23,69 @@ const PageGateways = () => {
     }
   ];
 
+  const handleMouseEnter = (index) => {
+    if (index === 1) {
+      setIsAIHovered(true);
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current.play();
+      }
+    }
+  };
+
+  const handleMouseLeave = (index) => {
+    if (index === 1) {
+      setIsAIHovered(false);
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+    }
+  };
+
   return (
     <section className="relative z-20 w-full max-w-[1200px] mx-auto px-6 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {gateways.map((gateway, i) => (
-          <div key={i} className="group relative">
+          <div 
+            key={i} 
+            className="group relative"
+            onMouseEnter={() => handleMouseEnter(i)}
+            onMouseLeave={() => handleMouseLeave(i)}
+          >
             {/* Border Glow Effect */}
             <div className="absolute -inset-[1px] bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             <div className="relative h-full bg-[#0A0A0F] border border-white/10 rounded-[32px] overflow-hidden flex flex-col">
-              {/* Image Container */}
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <img 
-                  src={gateway.image} 
-                  alt={gateway.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                />
+              {/* Image/Video Container */}
+              <div className="relative aspect-[16/9] overflow-hidden bg-[#000]">
+                {i === 1 ? (
+                  <div className="w-full h-full relative">
+                    {/* Video for AI Card */}
+                    <video
+                      ref={videoRef}
+                      src="/eye video.mp4"
+                      className="w-full h-full object-cover transition-opacity duration-500"
+                      muted
+                      playsInline
+                      style={{ opacity: isAIHovered ? 1 : 0.6 }}
+                    />
+                    {/* Fallback/Static state image if video is not active */}
+                    {!isAIHovered && (
+                      <img 
+                        src={gateway.image} 
+                        alt={gateway.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-100"
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <img 
+                    src={gateway.image} 
+                    alt={gateway.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent"></div>
               </div>
 
