@@ -13,29 +13,6 @@ const BackingCards = () => {
 
   const backers = [
     {
-      name: 'NVIDIA',
-      tagline: 'INCEPTION PROGRAM',
-      heroImage: '/nvidia1.jpg',
-      description: 'Collaborating through NVIDIA Inception for advanced AI compute and hardware-level optimization for our Telugu models.',
-      fullContent: '10X Technologies is proud to be part of the NVIDIA Inception Program — a program designed to nurture startups revolutionizing industries with advances in AI and data science. Through this collaboration, we gain access to NVIDIA\'s cutting-edge GPU infrastructure, technical expertise, and go-to-market support to accelerate our foundation model training and on-device inference capabilities.',
-      highlights: [
-        'Access to NVIDIA DGX Cloud compute for model training',
-        'Hardware-level optimization for Telugu LLM inference',
-        'Technical mentorship from NVIDIA AI engineers',
-        'Priority access to new GPU architectures and SDKs',
-      ],
-      accentColor: '#76b900',
-      borderHover: 'hover:border-[#76b900]/30',
-      gradientRgba: '118,185,0',
-      logo: (
-        <img
-          src="/nvidia1.jpg"
-          alt="NVIDIA Logo"
-          className="h-16 w-auto object-contain opacity-100 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(118,185,0,0.8)]"
-        />
-      )
-    },
-    {
       name: 'AWS',
       tagline: 'CLOUD INFRASTRUCTURE',
       heroImage: 'https://i.ibb.co/7xm7tHpW/10-X-AWS-Announcement.png',
@@ -59,9 +36,32 @@ const BackingCards = () => {
       )
     },
     {
+      name: 'NVIDIA',
+      tagline: 'INCEPTION PROGRAM',
+      heroImage: '/nvidia-remove.bg.png',
+      description: 'Collaborating through NVIDIA Inception for advanced AI compute and hardware-level optimization for our Telugu models.',
+      fullContent: '10X Technologies is proud to be part of the NVIDIA Inception Program — a program designed to nurture startups revolutionizing industries with advances in AI and data science. Through this collaboration, we gain access to NVIDIA\'s cutting-edge GPU infrastructure, technical expertise, and go-to-market support to accelerate our foundation model training and on-device inference capabilities.',
+      highlights: [
+        'Access to NVIDIA DGX Cloud compute for model training',
+        'Hardware-level optimization for Telugu LLM inference',
+        'Technical mentorship from NVIDIA AI engineers',
+        'Priority access to new GPU architectures and SDKs',
+      ],
+      accentColor: '#76b900',
+      borderHover: 'hover:border-[#76b900]/30',
+      gradientRgba: '118,185,0',
+      logo: (
+        <img
+          src="/nvidia-remove.bg.png"
+          alt="NVIDIA Logo"
+          className="h-16 w-auto object-contain opacity-100 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(118,185,0,0.8)]"
+        />
+      )
+    },
+    {
       name: 'Govt of India',
       tagline: 'MEITY STARTUP HUB',
-      heroImage: '/MeitY.jpg',
+      heroImage: '/govt of india-remove.bg.png',
       description: 'Supported and backed by the Ministry of Electronics and Information Technology through the MeitY Startup Hub.',
       fullContent: '10X Technologies is officially recognized and funded by the Government of India through the MeitY Startup Hub under the EiR-2 (Entrepreneur in Residence) program. This backing validates our mission to build indigenous AI hardware and language models tailored for India\'s linguistic diversity, and provides us with the resources, network, and credibility to scale nationally and globally.',
       highlights: [
@@ -75,7 +75,7 @@ const BackingCards = () => {
       gradientRgba: '30,144,255',
       logo: (
         <img
-          src="/MeitY.jpg"
+          src="/govt of india-remove.bg.png"
           alt="Govt of India"
           className="h-16 w-auto object-contain opacity-100 group-hover:opacity-100 transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(30,144,255,0.8)]"
         />

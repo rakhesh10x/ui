@@ -108,31 +108,34 @@ const Team = () => {
                 boxShadow: `0 0 50px rgba(${selected.gradientRgba},0.08)`,
               }}
             >
-              {/* Left: image with right-side fade */}
-              <div className="relative w-2/5 flex-shrink-0 h-full">
-                {selected.photo ? (
-                  <img
-                    src={selected.photo}
-                    alt={selected.name}
-                    className="w-full h-full object-cover object-top"
-                  />
-                ) : (
+                {/* Left: image with right-side fade */}
+                <div className="relative w-2/5 flex-shrink-0 h-full">
+                  {selected.photo ? (
+                    <img
+                      src={selected.photo}
+                      alt={selected.name}
+                      className="w-full h-full object-cover object-top"
+                      style={{
+                        maskImage: 'linear-gradient(to right, black 65%, transparent 98%)',
+                        WebkitMaskImage: 'linear-gradient(to right, black 65%, transparent 98%)'
+                      }}
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center"
+                      style={{
+                        background: `linear-gradient(135deg, rgba(${selected.gradientRgba},0.15) 0%, rgba(${selected.gradientRgba},0.05) 100%)`,
+                      }}
+                    >
+                      <svg className="w-14 h-14 opacity-20" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24" style={{ color: selected.accentColor }}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                      </svg>
+                    </div>
+                  )}
                   <div
-                    className="w-full h-full flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, rgba(${selected.gradientRgba},0.15) 0%, rgba(${selected.gradientRgba},0.05) 100%)`,
-                    }}
-                  >
-                    <svg className="w-14 h-14 opacity-20" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24" style={{ color: selected.accentColor }}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
-                  </div>
-                )}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ background: 'linear-gradient(to right, transparent 30%, #08080f 100%)' }}
-                />
-              </div>
+                    className="absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-[#08080f] via-[#08080f]/60 to-transparent z-20 pointer-events-none"
+                  />
+                </div>
 
               {/* Right: details */}
               <div className="flex-1 flex flex-col justify-between py-6 px-6 bg-[#08080f]/50">

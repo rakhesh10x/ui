@@ -82,6 +82,10 @@ const PageGateways = () => {
                       muted
                       playsInline
                       onEnded={handleVideoEnd}
+                      style={{
+                        maskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)',
+                        WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)'
+                      }}
                     />
                   </div>
                 ) : (
@@ -89,9 +93,13 @@ const PageGateways = () => {
                     src={gateway.image} 
                     alt={gateway.title}
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    style={{
+                      maskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)',
+                      WebkitMaskImage: 'linear-gradient(to bottom, black 65%, transparent 98%)'
+                    }}
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04040c] via-transparent to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#04040c] via-[#04040c]/60 to-transparent z-20 pointer-events-none"></div>
               </div>
 
               {/* Content */}
