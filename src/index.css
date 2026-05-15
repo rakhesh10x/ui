@@ -174,17 +174,34 @@
   width: max-content;
   animation: marquee 30s linear infinite;
 }
-@keyframes blink-eyelid {
-  0% { transform: scaleY(0); }
-  15% { transform: scaleY(1); } /* Fast snap shut */
-  45% { transform: scaleY(1); } /* Hold shut like the video */
-  100% { transform: scaleY(0); } /* Fluid reopen */
+.animate-rightBlink {
+  animation: rightBlink 0.4s ease;
 }
 
-.animate-blink-eyelid {
-  transform-origin: top;
-  z-index: 10;
-  backface-visibility: hidden;
-  will-change: transform;
-  animation: blink-eyelid 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+.animate-leftReact {
+  animation: leftReact 0.4s ease;
+}
+
+@keyframes rightBlink {
+  0% {
+    transform: scaleY(1);
+  }
+  45% {
+    transform: scaleY(0.12);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes leftReact {
+  0% {
+    transform: translateY(0) scaleY(1);
+  }
+  45% {
+    transform: translateY(-6px) scaleY(0.82);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
 }

@@ -1,11 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 const PageGateways = () => {
-  const [hasPlayed, setHasPlayed] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
+  const [blink, setBlink] = useState(false);
+
+  const handleHover = () => {
+    setBlink(false);
+    requestAnimationFrame(() => {
+      setBlink(true);
+      setTimeout(() => {
+        setBlink(false);
+      }, 400);
+    });
+  };
 
   const gateways = [
     {
@@ -24,22 +32,6 @@ const PageGateways = () => {
     }
   ];
 
-  const handleMouseEnter = (index) => {
-    if (index === 1 && !isPlaying) {
-      setIsPlaying(true);
-    }
-  };
-
-  const handleMouseLeave = (index) => {
-    if (index === 1) {
-      setIsPlaying(false);
-    }
-  };
-
-  const handleVideoEnd = () => {
-    setIsPlaying(false);
-  };
-
   return (
     <section className="relative z-20 w-full max-w-[1200px] mx-auto px-6 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -47,8 +39,9 @@ const PageGateways = () => {
           <div 
             key={i} 
             className="group relative"
-            onMouseEnter={() => handleMouseEnter(i)}
-            onMouseLeave={() => handleMouseLeave(i)}
+            onMouseEnter={() => {
+              if (i === 1) handleHover();
+            }}
           >
             {/* Border Glow Effect */}
             <div className="absolute -inset-[1px] bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -57,17 +50,10 @@ const PageGateways = () => {
               {/* Image/Video Container */}
               <div className="relative aspect-[16/9] overflow-hidden bg-[#04040c] flex items-center justify-center">
                 {i === 1 ? (
-                  <>
-                    {/* Static LUCA Eyes with Guaranteed CSS Blink */}
-                    <div className="flex items-center justify-center gap-10 md:gap-12 relative z-10 group">
-                      <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)] overflow-hidden">
-                        <div className="absolute inset-0 bg-[#04040c] z-20 transform scale-y-0 origin-top group-hover:animate-blink-eyelid pointer-events-none"></div>
-                      </div>
-                      <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)] overflow-hidden">
-                        <div className="absolute inset-0 bg-[#04040c] z-20 transform scale-y-0 origin-top group-hover:animate-blink-eyelid pointer-events-none"></div>
-                      </div>
-                    </div>
-                  </>
+                  <div className="flex items-center justify-center gap-10 md:gap-12 relative z-10">
+                    <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)] ${blink ? 'animate-leftReact' : ''}`} style={{ transformOrigin: 'center' }}></div>
+                    <div className={`w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)] ${blink ? 'animate-rightBlink' : ''}`} style={{ transformOrigin: 'center' }}></div>
+                  </div>
                 ) : (
                   <img 
                     src={gateway.image} 
