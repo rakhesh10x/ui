@@ -27,18 +27,22 @@ const LogoGroup = () => (
 
 const Logos = () => {
   return (
-    <section className="mt-10 pt-4 pb-0 border-y border-white/10 overflow-hidden">
-      <p className="text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.3em] mb-2 text-center">Officially Collaborated & Backed By</p>
+    <section className="mt-16 w-full overflow-hidden">
+      <p className="text-[#A0A0A0] text-[10px] font-bold uppercase tracking-[0.3em] mb-6 text-center">
+        Officially Collaborated & Backed By
+      </p>
 
-      <div className="relative w-full overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+      <div className="border-y border-white/10 pt-4 pb-0">
+        <div className="relative w-full overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-        <div className="animate-marquee -mb-4">
-          <LogoGroup />
-          <LogoGroup />
-          <LogoGroup />
-          <LogoGroup />
+          <div className="animate-marquee -mb-4">
+            <LogoGroup />
+            <LogoGroup />
+            <LogoGroup />
+            <LogoGroup />
+          </div>
         </div>
       </div>
     </section>
