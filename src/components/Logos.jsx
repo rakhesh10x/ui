@@ -32,7 +32,7 @@ const Logos = () => {
         Officially Collaborated & Backed By
       </p>
 
-      <div className="border-y border-white/10 pt-4 pb-8">
+      <div className="border-y border-white/10 pt-4 pb-4">
         <div className="relative w-full">
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
