@@ -67,18 +67,18 @@ const PageGateways = () => {
               {/* Image/Video Container */}
               <div className="relative aspect-[16/9] overflow-hidden bg-[#04040c] flex items-center justify-center">
                 {i === 1 ? (
-                  <div className="w-full h-full relative flex items-center justify-center">
-                    {/* Static LUCA Eyes (Always visible by default) */}
-                    <div className={`flex items-center justify-center gap-8 transition-opacity duration-300 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
-                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.25),0_0_60px_rgba(255,255,255,0.1)]"></div>
-                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.25),0_0_60px_rgba(255,255,255,0.1)]"></div>
+                  <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none">
+                    {/* Layer 1: Static Idle Eyes */}
+                    <div className={`absolute inset-0 w-full h-full flex items-center justify-center gap-10 md:gap-12 transition-opacity duration-100 ${isPlaying ? 'opacity-0' : 'opacity-100'}`}>
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)]"></div>
+                      <div className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white shadow-[0_0_40px_rgba(255,255,255,0.25),0_0_80px_rgba(255,255,255,0.1)]"></div>
                     </div>
 
-                    {/* Video for AI Card (Overlay during animation) */}
+                    {/* Layer 2: Blink Video */}
                     <video
                       ref={videoRef}
                       src="/eye video.mp4"
-                      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-100 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
                       muted
                       playsInline
                       onEnded={handleVideoEnd}
