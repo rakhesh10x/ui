@@ -175,11 +175,16 @@
   animation: marquee 30s linear infinite;
 }
 @keyframes blink-eyelid {
-  0% { transform: translateY(-100%); }
-  50% { transform: translateY(0); }
-  100% { transform: translateY(-100%); }
+  0% { transform: scaleY(0); }
+  15% { transform: scaleY(1); } /* Fast snap shut */
+  45% { transform: scaleY(1); } /* Hold shut like the video */
+  100% { transform: scaleY(0); } /* Fluid reopen */
 }
 
 .animate-blink-eyelid {
-  animation: blink-eyelid 0.35s ease-in-out forwards;
+  transform-origin: top;
+  z-index: 10;
+  backface-visibility: hidden;
+  will-change: transform;
+  animation: blink-eyelid 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
